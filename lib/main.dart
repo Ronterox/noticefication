@@ -42,7 +42,11 @@ class _MyHomePageState extends State<MyHomePage> {
   Card _buildCard(BuildContext context, int index) {
     return Card(
       child: ListTile(
-        leading: const FlutterLogo(size: 56.0),
+        leading: CircleAvatar(
+          backgroundColor: [Colors.red, Colors.green, Colors.blue][index],
+          child: Text(texts[index].substring(0, 3),
+              style: const TextStyle(color: Colors.white)),
+        ),
         title: Text(texts[index]),
         subtitle: const Text('Here is a second line'),
         trailing: const Icon(Icons.more_vert),
@@ -57,8 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text(widget.title),
         ),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
+          children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextField(
