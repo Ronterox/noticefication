@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const NoticeficationApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class NoticeficationApp extends StatelessWidget {
+  const NoticeficationApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,21 +14,20 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.teal,
       ),
-      home: const MyHomePage(title: 'Notice your fications'),
+      home: const NotesApp(title: 'Notice your fications'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
+class NotesApp extends StatefulWidget {
+  const NotesApp({super.key, required this.title});
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<NotesApp> createState() => _NotesAppState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _NotesAppState extends State<NotesApp> {
   // This is the search bar
   final TextEditingController _filter = TextEditingController();
   String _searchText = "";
@@ -80,5 +79,40 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
         ));
+  }
+}
+
+class ChatApp extends StatelessWidget {
+  const ChatApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Chat',
+      theme: ThemeData(
+        primarySwatch: Colors.teal,
+      ),
+      home: const ChatScreen(title: 'Chat'),
+    );
+  }
+}
+
+class ChatScreen extends StatefulWidget {
+  const ChatScreen({super.key, required this.title});
+  final String title;
+
+  @override
+  State<ChatScreen> createState() => _ChatScreenState();
+}
+
+class _ChatScreenState extends State<ChatScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: const Center(child: Text('Chat')),
+    );
   }
 }
